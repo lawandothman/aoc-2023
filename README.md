@@ -1,6 +1,6 @@
 <img src="./.assets/christmas_ferris.png" width="164">
 
-# 🎄 Advent of Code {year}
+# 🎄 Advent of Code 2023
 
 Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.rust-lang.org/).
 
@@ -60,7 +60,7 @@ Tip: when editing a solution, `rust-analyzer` will display buttons for running /
 
 ### Download input & description for a day
 
-> **Note**  
+> **Note**
 > This command requires [installing the aoc-cli crate](#configure-aoc-cli-integration).
 
 ```sh
@@ -97,7 +97,7 @@ For example, running a benchmarked, optimized execution of day 1 would look like
 
 #### Submitting solutions
 
-> **Note**  
+> **Note**
 > This command requires [installing the aoc-cli crate](#configure-aoc-cli-integration).
 
 In order to submit part of a solution for checking, append the `--submit <part>` option to the `solve` command.
@@ -148,7 +148,7 @@ cargo clippy
 
 ### Read puzzle description in terminal
 
-> **Note**  
+> **Note**
 > This command requires [installing the aoc-cli crate](#configure-aoc-cli-integration).
 
 ```sh
