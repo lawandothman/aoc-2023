@@ -72,7 +72,25 @@ pub fn part_one(input: &str) -> Option<u32> {
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-    None
+    let games = parse_input(input);
+    Some(
+        games
+            .iter()
+            .map(|game| {
+                let mut min_red = 0;
+                let mut min_green = 0;
+                let mut min_blue = 0;
+
+                for set in &game.sets {
+                    min_red = std::cmp::max(min_red, set.red);
+                    min_green = std::cmp::max(min_green, set.green);
+                    min_blue = std::cmp::max(min_blue, set.blue);
+                }
+
+                min_red * min_green * min_blue
+            })
+            .sum(),
+    )
 }
 
 #[cfg(test)]
@@ -88,6 +106,6 @@ mod tests {
     #[test]
     fn test_part_two() {
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(2286));
     }
 }
