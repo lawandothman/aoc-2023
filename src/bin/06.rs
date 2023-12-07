@@ -33,8 +33,35 @@ pub fn part_one(input: &str) -> Option<u32> {
     )
 }
 
-pub fn part_two(input: &str) -> Option<u32> {
-    None
+pub fn part_two(input: &str) -> Option<u64> {
+    let mut lines = input.lines();
+
+    let time: u64 = lines
+        .next()
+        .unwrap()
+        .split_whitespace()
+        .skip(1)
+        .collect::<String>()
+        .parse()
+        .unwrap();
+    println!("time: {}", time);
+    let distance: u64 = lines
+        .next()
+        .unwrap()
+        .split_whitespace()
+        .skip(1)
+        .collect::<String>()
+        .parse()
+        .unwrap();
+
+    let mut count = 0;
+    for hold_time in 1..time {
+        if hold_time * (time - hold_time) > distance {
+            count += 1;
+        }
+    }
+
+    Some(count)
 }
 
 #[cfg(test)]
@@ -50,6 +77,6 @@ mod tests {
     #[test]
     fn test_part_two() {
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(71503));
     }
 }
